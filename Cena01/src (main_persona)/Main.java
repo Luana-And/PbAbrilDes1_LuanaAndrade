@@ -1,85 +1,55 @@
 import java.util.ArrayList;
 import java.util.List;
-
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
+        Person lily = new Person("Lily");
+        lily.spouse(new Person("Wilhelm"));
 
-                Person lily = new Person("Lily");
-                lily.spouse(new Person("Wilhelm"));
+        Person opa = new Person("Opa", lily);
+        opa.spouse(new Person("Oma"));
 
-                // Patriarch and matriarch
-                Person opa = new Person("Opa");
-                opa.spouse(new Person("Oma"));
+        Person reinhold = new Person("Reinhold", opa);
+        Person wilma = new Person("Wilma", opa);
+        Person sigrid = new Person("Sigrid", opa);
 
-                // Children of Oma and Opa
-                Person reinhold = new Person("Reinhold");
-                reinhold.spouse(new Person("Sonia"));
-                opa.addChild(reinhold);
+        reinhold.spouse(new Person("Sonia"));
+        Person christian = new Person("Christian", reinhold);
+        Person gabrielle = new Person("Gabrielle", reinhold);
+        Person sabine = new Person("Sabine", reinhold);
 
-                Person wilma = new Person("Wilma");
-                wilma.spouse(new Person("Rodolfo"));
-                opa.addChild(wilma);
+        wilma.spouse(new Person("Rodolfo"));
+        Person ricardo = new Person("Ricardo", wilma);
+        Person rodrigo = new Person("Rodrigo");
 
-                Person sigrid = new Person("Sigrid");
-                sigrid.spouse(new Person("Peter"));
-                opa.addChild(sigrid);
+        ricardo.spouse(new Person("Debora"));
 
-                // Children and spouse of Reinhold
-                Person christian = new Person("Christian");
-                reinhold.addChild(christian);
+        christian.spouse(new Person("Monica"));
+        Person oscar = new Person("Oscar");
+        Person lorena = new Person("Lorena", christian);
 
-                Person gabrielle = new Person("Gabrielle");
-                reinhold.addChild(gabrielle);
+        sigrid.spouse(new Person("Peter"));
+        Person martin = new Person("Martin");
+        Person thomas = new Person("Thomas");
+        Person claudia = new Person("Claudia");
+        martin.spouse(new Person("Carla"));
+        martin.addChild(new Person("Nicolas"));
 
-                Person sabine = new Person("Sabine");
-                reinhold.addChild(sabine);
 
-                // Children and spouse of Wilma
-                Person ricardo = new Person("Ricardo");
-                wilma.addChild(ricardo);
-
-                Person rodrigo = new Person("Rodrigo");
-                wilma.addChild(rodrigo);
-
-                // Ricardo and spouse
-                ricardo.spouse(new Person("Debora"));
-
-                // Children and spouse of Christian
-                Person oscar = new Person("Oscar");
-                christian.addChild(oscar);
-
-                Person lorena = new Person("Lorena");
-                christian.addChild(lorena);
-                christian.spouse(new Person("Monica"));
-
-                // Children and spouse of Sigrid
-                Person martin = new Person("Martin");
-                sigrid.addChild(martin);
-                martin.spouse(new Person("Carla"));
-                martin.addChild(new Person("Nicolas"));
-
-                Person thomas = new Person("Thomas");
-                sigrid.addChild(thomas);
-
-                Person claudia = new Person("Claudia");
-                sigrid.addChild(claudia);
-
-                lily.printFamilyTree();
-                opa.printFamilyTree();
-                reinhold.printFamilyTree();
-                wilma.printFamilyTree();
-                sigrid.printFamilyTree();
-                christian.printFamilyTree();
-                ricardo.printFamilyTree();
-                rodrigo.printFamilyTree();
-                gabrielle.printFamilyTree();
-                sabine.printFamilyTree();
-                oscar.printFamilyTree();
-                lorena.printFamilyTree();
-                martin.printFamilyTree();
-                thomas.printFamilyTree();
-                claudia.printFamilyTree();
-            }
+            lily.printFamilyTree(0);
+            opa.printFamilyTree(1);
+            reinhold.printFamilyTree(2);
+            christian.printFamilyTree(3);
+            oscar.printFamilyTree(4);
+            lorena.printFamilyTree(4);
+            gabrielle.printFamilyTree(3);
+            sabine.printFamilyTree(3);
+            wilma.printFamilyTree(2);
+            ricardo.printFamilyTree(3);
+            rodrigo.printFamilyTree(3);
+            sigrid.printFamilyTree(2);
+            martin.printFamilyTree(3);
+            thomas.printFamilyTree(3);
+            claudia.printFamilyTree(3);
         }
+    }
+
