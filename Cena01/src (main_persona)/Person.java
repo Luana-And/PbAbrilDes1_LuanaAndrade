@@ -11,6 +11,12 @@ public class Person {
         this.children = new ArrayList<>();
     }
 
+    public Person(String name, Person spouse) {
+        this.name = name;
+        this.spouse = spouse;
+        this.children = new ArrayList<>();
+    }
+
     public void spouse(Person spouse) {
         this.spouse = spouse;
         spouse.spouse = this;
@@ -20,36 +26,11 @@ public class Person {
         children.add(child);
     }
 
-    public void printFamilyTree() {
-        System.out.println("Genealogy of " + name + ":");
-        printFamilyTreeRecursive(this, 0);
-    }
-
-    private void printFamilyTreeRecursive(Person person, int level) {
-        StringBuilder prefix = new StringBuilder();
-        for (int i = 0; i < level; i++) {
-            prefix.append("    "); // Adjust the spacing as needed
+    public void printFamilyTree(int level) {
+        String prefix = "    ".repeat(level);
+        System.out.println(prefix + name + " -- Married to: " + (spouse != null ? spouse.name : "Single") + (children.isEmpty() ? "" : " -- Children:"));
+        for (Person child : children) {
+            child.printFamilyTree(level + 1);
         }
-        System.out.println(prefix.toString() + person.getName());
-
-        if (person.spouse != null) {
-            System.out.println(prefix.toString() + " -- Married to: " + person.spouse.getName());
-        }
-
-        for (Person child : person.children) {
-            printFamilyTreeRecursive(child, level + 1);
-        }
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public Person getSpouse() {
-        return spouse;
-    }
-
-    public List<Person> getChildren() {
-        return children;
     }
 }
