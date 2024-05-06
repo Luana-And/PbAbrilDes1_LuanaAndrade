@@ -1,5 +1,5 @@
 package application;
-
+import application.FerrisWheel;
 import model.Adult;
 import model.Child; // Importe a classe Child
 
@@ -18,7 +18,7 @@ public class Main {
          * - Children under 12 years old can only ride accompanied by their father!
          */
         ferrisWheel.board(2, joao, maria); // ERROR: Joao is under 12 and the father is not present
-        ferrisWheel.board(2, joao); // OK: Now the father is present
+        ferrisWheel.board(2, joao, paulo); // OK: Now the father is present
         ferrisWheel.board(3, maria); // OK: Maria is 12 years old and can ride alone
         ferrisWheel.board(13, pedro); // OK: Pedro rides alone
         ferrisWheel.board(16, henrique); // ERROR: Henrique is under 12 and we don't know who the father is (should be Silvio, but he didn't assume responsibility!)
