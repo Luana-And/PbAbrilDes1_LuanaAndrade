@@ -11,5 +11,5 @@ Este repositório contém os três cenários propostos no primeiro desafio do cu
 - ## Instalação
 
 1. **Clone este repositório:**
-
+https://github.com/Luana-And/PbAbrilDes1_LuanaAndrade.git
  2. **Acesse o diretório do projeto:**
